@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API 管理 — Tideo</title>
+    <title>API 管理 — <span id="apiPageTitle">本产品</span></title>
     <script>
-    // 最早的阻塞脚本：防止主题切换时闪烁
     (function(){
-        var t = localStorage.getItem('tideo_theme');
+      var pn=(window.API_CONSOLE_CONFIG||{}).productName||'本产品';
+      var el=document.getElementById('apiPageTitle');
+      if(el) el.textContent=pn;
+      var logoEl=document.getElementById('apiLogoText');
+      if(logoEl) logoEl.textContent=pn;
+      var linkEl=document.getElementById('apiLogoLink');
+      if(linkEl) linkEl.title=pn;
+      var t=localStorage.getItem('ptheme');
         if (t === 'dark') {
             document.documentElement.removeAttribute('data-theme');
         } else if (t === 'light' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
@@ -765,7 +771,7 @@
 <body class="creator-layout">
     <!-- 侧边栏 -->
     <aside class="icon-sidebar">
-        <a href="create.html" class="icon-sidebar-logo" title="Tideo"><span class="logo-wordmark">Tideo</span></a>
+        <a href="create.html" class="icon-sidebar-logo" id="apiLogoLink"><span class="logo-wordmark" id="apiLogoText">本产品</span></a>
         <nav class="icon-nav">
             <a href="create.html" class="icon-nav-item"><img class="nav-icon nav-icon--off" src="assets/icons/nav-create.svg" width="22" height="22" alt=""><img class="nav-icon nav-icon--on" src="assets/icons/nav-create-active.svg" width="22" height="22" alt="">生成</a>
             <a href="media.html" class="icon-nav-item"><img class="nav-icon nav-icon--off" src="assets/icons/nav-media.svg" width="22" height="22" alt=""><img class="nav-icon nav-icon--on" src="assets/icons/nav-media-active.svg" width="22" height="22" alt="">素材</a>
@@ -883,7 +889,7 @@
                         生产环境主密钥
                         <span class="key-status key-status--active">活跃</span>
                     </div>
-                    <div class="api-key-value">sk-tideo-prod-****-****-****-a3f7b2c1</div>
+                    <div class="api-key-value">sk-api-prod-****-****-****-a3f7b2c1</div>
                 </div>
                 <div class="api-key-meta">
                     <div class="api-key-meta-item">
@@ -896,7 +902,7 @@
                     </div>
                 </div>
                 <div class="api-key-actions">
-                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-tideo-prod-8f4a-29c1-b7e3-a3f7b2c1">
+                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-api-prod-8f4a-29c1-b7e3-a3f7b2c1">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="5" y="5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5V3.5C9 2.67157 8.32843 2 7.5 2H3.5C2.67157 2 2 2.67157 2 3.5V7.5C2 8.32843 2.67157 9 3.5 9H5" stroke="currentColor" stroke-width="1.2"/></svg>
                     </button>
                     <button class="api-key-action-btn api-key-action-btn--danger" title="删除">
@@ -915,7 +921,7 @@
                         开发测试密钥
                         <span class="key-status key-status--active">活跃</span>
                     </div>
-                    <div class="api-key-value">sk-tideo-dev-****-****-****-e9d1f8a4</div>
+                    <div class="api-key-value">sk-api-dev-****-****-****-e9d1f8a4</div>
                 </div>
                 <div class="api-key-meta">
                     <div class="api-key-meta-item">
@@ -928,7 +934,7 @@
                     </div>
                 </div>
                 <div class="api-key-actions">
-                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-tideo-dev-2c7b-8e5a-f193-e9d1f8a4">
+                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-api-dev-2c7b-8e5a-f193-e9d1f8a4">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="5" y="5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5V3.5C9 2.67157 8.32843 2 7.5 2H3.5C2.67157 2 2 2.67157 2 3.5V7.5C2 8.32843 2.67157 9 3.5 9H5" stroke="currentColor" stroke-width="1.2"/></svg>
                     </button>
                     <button class="api-key-action-btn api-key-action-btn--danger" title="删除">
@@ -947,7 +953,7 @@
                         旧版兼容密钥
                         <span class="key-status key-status--expired">已过期</span>
                     </div>
-                    <div class="api-key-value">sk-tideo-legacy-****-****-****-7b2e4f09</div>
+                    <div class="api-key-value">sk-api-legacy-****-****-****-7b2e4f09</div>
                 </div>
                 <div class="api-key-meta">
                     <div class="api-key-meta-item">
@@ -960,7 +966,7 @@
                     </div>
                 </div>
                 <div class="api-key-actions">
-                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-tideo-legacy-9a3c-1d7e-f582-7b2e4f09">
+                    <button class="api-key-action-btn" title="复制密钥" data-copy="sk-api-legacy-9a3c-1d7e-f582-7b2e4f09">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="5" y="5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5V3.5C9 2.67157 8.32843 2 7.5 2H3.5C2.67157 2 2 2.67157 2 3.5V7.5C2 8.32843 2.67157 9 3.5 9H5" stroke="currentColor" stroke-width="1.2"/></svg>
                     </button>
                     <button class="api-key-action-btn api-key-action-btn--danger" title="删除">
@@ -1070,7 +1076,7 @@
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M7 7L3 11L7 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7L19 11L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </div>
                 <div class="api-quick-title">SDK & 代码示例</div>
-                <div class="api-quick-desc">Python / Node.js / Java SDK，快速集成 Tideo 能力到你的应用</div>
+                <div class="api-quick-desc">Python / Node.js / Java SDK，快速集成 API 能力到你的应用到你的应用</div>
                 <svg class="api-quick-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div class="api-quick-card" onclick="window.open('#webhook','_blank')">
@@ -1127,7 +1133,7 @@
     <!-- 主题切换逻辑 -->
     <script>
     (function() {
-        var STORAGE_KEY = 'tideo_theme';
+        var STORAGE_KEY = 'ptheme';
         var html = document.documentElement;
 
         var saved = localStorage.getItem(STORAGE_KEY);
@@ -1171,7 +1177,7 @@
         var logoutBtn = document.getElementById('userLogoutBtn');
 
         function updateUserUI() {
-            var raw = localStorage.getItem('tideo_user');
+            var raw = localStorage.getItem('puser');
             if (raw) {
                 try {
                     var user = JSON.parse(raw);
@@ -1210,13 +1216,13 @@
         });
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            localStorage.removeItem('tideo_user');
+            localStorage.removeItem('puser');
             updateUserUI();
             dropdown.classList.remove('show');
         });
         updateUserUI();
         window.addEventListener('storage', function(e) {
-            if (e.key === 'tideo_user') updateUserUI();
+            if (e.key === 'puser') updateUserUI();
         });
     })();
     </script>
@@ -1292,7 +1298,7 @@
                 return;
             }
             // 模拟创建
-            var newKey = 'sk-tideo-' + Math.random().toString(36).substr(2, 8);
+            var newKey = 'sk-api-' + Math.random().toString(36).substr(2, 8);
             var list = document.getElementById('apiKeysList');
             var card = document.createElement('div');
             card.className = 'api-key-card';
