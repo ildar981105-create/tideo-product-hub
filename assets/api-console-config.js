@@ -1,10 +1,64 @@
 /**
  * api-console-config.js — API Console 全局配置
  *
- * 使用方法：
- * 1. 在 api.html 之前引入本文件
- * 2. 修改 API_CONSOLE_CONFIG 对象
- * 3. 页面会根据此配置自动渲染端点列表
+ * ============================================================
+ * 🎯 最简配置（只需 3 步，5 分钟完成）
+ * ============================================================
+ *
+ * 1. 引入本文件
+ * 2. 设置 baseUrl + groups（见下方最小示例）
+ * 3. 引入 api.html
+ *
+ * 最小配置示例（复制下面的代码即可）：
+ *
+ * <script src="api-console-config.js"></script>
+ * <script>
+ *   window.API_CONSOLE_CONFIG = {
+ *     productName: '我的产品',
+ *     baseUrl:     'https://api.my-product.com',
+ *     groups: [
+ *       {
+ *         name: '用户',
+ *         apis: [
+ *           { method: 'POST', path: '/users', desc: '创建用户',
+ *             params: [
+ *               { name:'name',  type:'text',   required:true,  placeholder:'姓名' },
+ *               { name:'email', type:'text',   required:true,  placeholder:'邮箱' }
+ *             ]
+ *           },
+ *           { method: 'GET',  path: '/users/:id', desc: '查询用户',
+ *             params: [
+ *               { name:'id', type:'text', required:true, placeholder:'用户ID' }
+ *             ]
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   };
+ * </script>
+ * <script src="api.html"></script>
+ *
+ * ============================================================
+ * 📋 配置速查表
+ * ============================================================
+ *
+ * 字段      | 类型    | 必填 | 说明
+ * ----------|---------|------|------
+ * productName | string | 否   | 页面标题（默认"Tideo"）
+ * baseUrl    | string | 是   | API 基础地址
+ * groups     | array  | 是   | 端点分组列表
+ * timeout    | number | 否   | 请求超时 ms（默认 30000）
+ * showStats  | bool   | 否   | 是否显示统计卡片（默认 true）
+ * theme      | string | 否   | 'dark'|'light'（默认 'dark'）
+ *
+ * group 对象格式：
+ *   { name:'分组名', icon:'<svg>...</svg>(可选)', apis:[...] }
+ *
+ * api 对象格式：
+ *   { method:'GET'|'POST'|'PUT'|'DELETE', path:'/path', desc:'描述',
+ *     params:[{ name, type:'text'|'file'|'select', required, options?, default?, placeholder?, desc? }] }
+ *
+ * ============================================================
  */
 
 window.API_CONSOLE_CONFIG = window.API_CONSOLE_CONFIG || {};

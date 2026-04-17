@@ -5,6 +5,50 @@ description: "This skill provides a complete product documentation hub including
 
 # Tideo Product Hub Skill — 产品知识库聚合器 v2（API Console 可配置版）
 
+## 🎯 5 分钟上手
+
+### 最简配置（API Console，复制即用）
+
+```html
+<script src="api-console-config.js"></script>
+<script>
+  window.API_CONSOLE_CONFIG = {
+    productName: '我的产品',
+    baseUrl:     'https://api.my-product.com',
+    groups: [
+      {
+        name: '用户',
+        apis: [
+          { method: 'POST', path: '/users', desc: '创建用户',
+            params: [
+              { name:'name',  type:'text',   required:true,  placeholder:'姓名' },
+              { name:'email', type:'text',   required:true,  placeholder:'邮箱' }
+            ]
+          },
+          { method: 'GET',  path: '/users/:id', desc: '查询用户',
+            params: [
+              { name:'id', type:'text', required:true, placeholder:'用户ID' }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+</script>
+<script src="api.html"></script>
+```
+
+### 其他页面
+
+| 页面 | 定制方式 |
+|------|---------|
+| **PRD** | 复制 `prd.html`，替换章节内容 |
+| **产品简介** | 复制 `product-brief.html`，替换内容 |
+| **体验框架** | 复制 `experience-framework.html`，替换四维模型内容 |
+| **Hub 导航** | 复制 `hub.html`，修改四个入口链接 |
+
+---
+
 ## 概述
 
 本 Skill 提供一套**可配置的产品文档黄页**，包含 PRD/Brief/体验框架/API调试台四类页面。
